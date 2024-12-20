@@ -14,6 +14,8 @@ export const Step2 = () => {
       setSearchParams({ step: 'lool-taki-chuj' });
       setShowRefresh();
       setShowRefreshLocal(true);
+    } else {
+      setSearchParams({ step: '2' });
     }
   }, [searchParams]);
 
