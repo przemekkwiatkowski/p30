@@ -5,8 +5,14 @@ import {Steps} from "./Steps.tsx";
 import {StepsProvider} from "./StepsContext.tsx";
 import {Navigate, Route, Routes} from "react-router";
 import {Reward} from "./Reward.tsx";
+import LogRocket from 'logrocket';
+import {useUser} from "./hooks/useUser.ts";
+
+LogRocket.init('ilhzft/p30project');
 
 function App() {
+  useUser();
+
   return (
     <BrowserRouter>
 

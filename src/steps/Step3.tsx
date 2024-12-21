@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import {useEffect, useState} from "react";
 import backgroundImage from './background.jpg';
 import { useNavigate } from 'react-router-dom';
+import LogRocket from "logrocket";
 
 
 
@@ -25,6 +26,7 @@ export const Step3 = () => {
   const [error, setError] = useState('');
 
   const validatePassword = (password: string) => {
+    LogRocket.log('step 3 validate password', password);
     return password.toUpperCase() === correctPassword;
   };
 

@@ -1,6 +1,7 @@
 import {useSearchParams} from "react-router-dom";
 import {useSteps} from "../StepsContext.tsx";
 import {useEffect, useState} from "react";
+import LogRocket from "logrocket";
 
 export const Step2 = () => {
   const { showRefresh, setShowRefresh } = useSteps();
@@ -11,6 +12,7 @@ export const Step2 = () => {
 
   useEffect(() => {
     if (showTips) {
+      LogRocket.log('step 2 show tips');
       setSearchParams({ step: 'lool-taki-chuj' });
       setShowRefresh();
       setShowRefreshLocal(true);
@@ -20,6 +22,7 @@ export const Step2 = () => {
   }, [searchParams]);
 
   const refreshPage = () => {
+    LogRocket.log('step 2 refreshed');
     setSearchParams(undefined);
     const currentUrl = window.location.href;
     window.history.replaceState(null, '', currentUrl);

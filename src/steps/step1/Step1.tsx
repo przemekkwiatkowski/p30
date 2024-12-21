@@ -2,6 +2,7 @@ import MatrixRain from "../../matrixRain/matrixRain.tsx";
 import {useState} from "react";
 import {useSteps} from "../../StepsContext.tsx";
 import {useSearchParams} from "react-router-dom";
+import LogRocket from "logrocket";
 
 
 export const Step1 = () => {
@@ -24,11 +25,13 @@ export const Step1 = () => {
   };
 
   const handleHover = () => {
+    LogRocket.log('step 1 hover button');
     setHoverCount(prev => prev + 1);
     setPosition(getRandomPosition());
   };
 
   const handleClick = () => {
+    LogRocket.log('step 1 click');
     setSearchParams({ step: '2' });
     setStep(2);
   };

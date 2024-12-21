@@ -2,8 +2,14 @@ import Confetti from 'react-confetti'
 import './Reward.css'
 import Button from "@mui/material/Button";
 import Pychu from './pychu.png'
+import LogRocket from "logrocket";
+import {useEffect} from "react";
 
 export const Reward = () => {
+  useEffect(() => {
+    LogRocket.log('step reward');
+  }, []);
+
   return (
     <div style={{
       width: '100%',

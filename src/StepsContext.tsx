@@ -1,4 +1,5 @@
 import {createContext, useContext, useState, ReactNode, useEffect} from 'react';
+import LogRocket from "logrocket";
 
 type StepsContextValue = {
   step: number;
@@ -31,12 +32,14 @@ export const StepsProvider = ({ children }: StepsProviderProps) => {
   });
 
   useEffect(() => {
+    LogRocket.log('step', step);
     localStorage.setItem(key, step.toString());
   }, [step]);
 
   return (
     <StepsContext.Provider value={{ step, setStep, showRefresh, setShowRefresh: () => {
         setStateShowRefresh(true);
+        LogRocket.log('show refresh', true);
         localStorage.setItem('pychu:showRefresh', 'true');
       } }}>
       {children}
